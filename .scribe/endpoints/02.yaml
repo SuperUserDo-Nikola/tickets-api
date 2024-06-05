@@ -34,7 +34,7 @@ endpoints:
         name: 'filter[status]'
         description: 'Filter by status code: A, C, H, X. No example'
         required: false
-        example: minima
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -50,7 +50,7 @@ endpoints:
         custom: []
     cleanQueryParameters:
       sort: 'sort=title,-created_at'
-      'filter[status]': minima
+      'filter[status]': nihil
       'filter[title]': 'filter[title]=*fix*'
     bodyParameters: []
     cleanBodyParameters: []
@@ -127,7 +127,7 @@ endpoints:
         name: data.attributes.description
         description: 'The description of the ticket.'
         required: true
-        example: 'Accusantium veniam commodi est et aut voluptas officia.'
+        example: 'Quas est qui molestiae est.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -185,7 +185,7 @@ endpoints:
       data:
         attributes:
           title: 'No example'
-          description: 'Accusantium veniam commodi est et aut voluptas officia.'
+          description: 'Quas est qui molestiae est.'
           status: A
         relationships:
           author:
