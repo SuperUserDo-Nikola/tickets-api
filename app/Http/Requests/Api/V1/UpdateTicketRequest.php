@@ -5,6 +5,7 @@ namespace App\Http\Requests\Api\V1;
 use App\Permissions\V1\Abilities;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateTicketRequest extends BaseTicketRequest
 {
@@ -30,7 +31,7 @@ class UpdateTicketRequest extends BaseTicketRequest
             'data.relationships.author.data.id' => 'prohibited',
         ];
 
-        if($this->user()->tokenCan(Abilities::UpdateOwnTicket)) {
+        if(Auth::user()->tokenCan(Abilities::UpdateOwnTicket)) {
             $rules['data.relationships.author.data.id'] = 'sometimes|integer';
         }
 

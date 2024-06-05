@@ -19,7 +19,12 @@ class TicketController extends ApiController
 {
     protected string $policyClass = TicketPolicy::class;
     /**
-     * Display a listing of the resource.
+     * Get All Tickets.
+     *
+     * @group Managing Tickets
+     * @queryParam sort string Data field(s) to sort by. Separate multiple values with a commas. Denote descending order with a dash (-). Example: sort=title,-created_at
+     * @queryParam filter[status] Filter by status code: A, C, H, X. No example
+     * @queryParam filter[title] Filter by title. Wildcard search is supported. Example: filter[title]=*fix*
      */
     public function index(TicketFilter $filters): AnonymousResourceCollection
     {
@@ -27,7 +32,11 @@ class TicketController extends ApiController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create a Ticket.
+     *
+     * Create a new Ticket. Users can only create tickets for themselves. Managers can create tickets for other users.
+     *
+     * @group Managing Tickets
      */
     public function store(StoreTicketRequest $request)
     {
