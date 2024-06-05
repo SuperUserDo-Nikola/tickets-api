@@ -13,4 +13,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::view('/docs/v1', 'scribe.index')->name('public_docs');
+Route::view('/docs', 'scribe.index')->name('public_docs');
